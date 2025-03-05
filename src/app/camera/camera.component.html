@@ -1,0 +1,29 @@
+<div class="camera-container">
+    <div class="camera-header">
+      <span class="camera-icon">📷</span>
+      <h2>No hay imagen seleccionada</h2>
+    </div>
+  
+    <div *ngIf="isLoading" class="loading-spinner">
+      <span class="loader">⌛</span>
+      <span>Tomando foto...</span>
+    </div>
+  
+    <div *ngIf="imageUrl" class="image-preview">
+      <img [src]="imageUrl" alt="Imagen tomada" class="preview-image">
+      <p>Imagen seleccionada</p>
+    </div>
+  
+    <div *ngIf="!imageUrl && !isLoading" class="no-image">
+      <p>No hay imagen seleccionada</p>
+    </div>
+  
+    <button (click)="takePicture()" [disabled]="isLoading" class="take-picture-button">
+      📷 Tomar Foto
+    </button>
+  
+    <div *ngIf="errorMessage" class="error-message">
+      <p>{{ errorMessage }}</p>
+    </div>
+  </div>
+  
