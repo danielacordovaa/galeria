@@ -1,15 +1,22 @@
 import { Injectable } from '@angular/core';
+import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 
 @Injectable({
-  providedIn: 'root' // 👈 Esto hace que el servicio esté disponible globalmente
+  providedIn: 'root'
 })
 export class CameraService {
-  async takePicture(): Promise<string> {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        const fakeImageUrl = 'https://via.placeholder.com/300'; // Imagen de prueba
-        resolve(fakeImageUrl);
-      }, 2000);
-    });
+  async takePicture(): Promise<string | null> {
+    try {
+      const image = await Camera.getPhoto({
+        quality: 90,
+        allowEditing: false,
+        resultType: CameraResultType.DataUrl,
+        source: CameraSource.Camera
+      });
+      return image.dataUrl ?? null;
+    } catch (error) {
+      console.error('Error tomando la foto', error);
+      return null;
+    }
   }
 }

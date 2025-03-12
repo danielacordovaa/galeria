@@ -4,10 +4,7 @@ import { CameraComponent } from './camera/camera.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CameraComponent],
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  template: `<app-camera></app-camera>`,
+  imports: [CameraComponent] // 👈 IMPORTARLO BIEN
 })
-export class AppComponent {
-  title = 'camera-app';
-}
+export class AppComponent { }

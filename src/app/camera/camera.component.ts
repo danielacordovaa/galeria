@@ -1,32 +1,24 @@
 import { Component } from '@angular/core';
 import { CameraService } from './services/camera.service';
-import { CommonModule } from '@angular/common'; 
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-camera',
+  standalone: true, // 👈 IMPORTANTE
   templateUrl: './camera.component.html',
   styleUrls: ['./camera.component.css'],
-  imports: [CommonModule],
-  standalone: true,
+  providers: [CameraService], // 👈 IMPORTANTE para Standalone
+  imports: [NgIf] // 👈 IMPORTAR DIRECTIVAS NECESARIAS
 })
 export class CameraComponent {
-  imageUrl: string | null = null;
-  isLoading: boolean = false;
-  errorMessage: string | null = null;
+  imageUrl?: string;
 
   constructor(private cameraService: CameraService) {}
 
-  async takePicture() {
-    this.isLoading = true;
-    this.errorMessage = null;  // Limpiar cualquier mensaje de error previo
-
-    try {
-      const imageUrl = await this.cameraService.takePicture();
-      this.imageUrl = imageUrl;
-    } catch (error: any) {
-      this.errorMessage = error.message || 'Error al tomar la foto';
-    } finally {
-      this.isLoading = false;
+  async takePhoto() {
+    const image = await this.cameraService.takePicture();
+    if (image) {
+      this.imageUrl = image;
     }
   }
 }
