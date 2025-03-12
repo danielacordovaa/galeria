@@ -1,0 +1,9 @@
+<div>
+    <h2>Galería</h2>
+    <div>
+        <div *ngFor="let photo of photos; let i = index" class="photo-container">
+            <img [src]="photo" [alt]="'Foto ' + i" class="photo" />
+            <button (click)="deletePhoto(i)" class="delete-button">Eliminar</button>
+        </div>
+    </div>
+</div>

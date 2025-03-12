@@ -1,23 +1,70 @@
 .camera-container {
-    text-align: center;
-    margin-top: 20px;
+  text-align: center;
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: transform 0.3s ease-in-out;
+}
+
+.camera-container:hover {
+  transform: translateY(-5px);
+}
+
+button {
+  padding: 12px 20px;
+  font-size: 18px;
+  background-color: #ff4081;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #e1006e;
+  transform: scale(1.05);
+}
+
+button:active {
+  background-color: #d0005f;
+}
+
+.photo {
+  margin-top: 20px;
+  width: 90%;
+  max-width: 450px;
+  border-radius: 12px;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.photo:hover {
+  transform: scale(1.05);
+}
+
+.photo:active {
+  transform: scale(1);
+}
+
+@media (max-width: 768px) {
+  .camera-container {
+      padding: 15px;
+      margin-top: 15px;
   }
-  
+
   button {
-    padding: 10px 15px;
-    font-size: 18px;
-    background-color: #ff4081;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 8px;
+      font-size: 16px;
+      padding: 10px 15px;
   }
-  
+
   .photo {
-    margin-top: 20px;
-    width: 80%;
-    max-width: 400px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 100%;
   }
-  
+}

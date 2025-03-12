@@ -1,0 +1,27 @@
+.photo-container {
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
+}
+
+.photo {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.delete-button {
+    display: block;
+    margin-top: 5px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background-color: #ff1a1a;
+}
